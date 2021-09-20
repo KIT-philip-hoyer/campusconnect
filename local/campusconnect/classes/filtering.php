@@ -25,7 +25,7 @@
 namespace local_campusconnect;
 
 use coding_exception;
-use coursecat;
+use core_course_category;
 use html_writer;
 use moodle_url;
 use stdClass;
@@ -394,7 +394,7 @@ class filtering {
      */
     public static function output_category_tree($baseurl, $activecategories, $selectedcategory = null) {
         $ret = '';
-        $basecat = coursecat::get(0);
+        $basecat = core_course_category::get(0);
         $cats = $basecat->get_children();
         foreach ($cats as $cat) {
             $ret .= self::output_category_and_children($cat, $baseurl, $activecategories, $selectedcategory);
@@ -410,7 +410,7 @@ class filtering {
      * @param null $selectedcategory
      * @return string
      */
-    protected static function output_category_and_children(coursecat $category, $baseurl, $activecategories,
+    protected static function output_category_and_children(core_course_category $category, $baseurl, $activecategories,
                                                            $selectedcategory = null) {
         $childcats = '';
         $cats = $category->get_children();

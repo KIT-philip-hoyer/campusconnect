@@ -36,8 +36,7 @@ class campusconnect_coursefiltering_form extends moodleform {
         $attributes = $this->_customdata['attributes'];
         $attributescount = $this->_customdata['attributescount'];
 
-        require_once($CFG->libdir.'/coursecatlib.php');
-        $categorylist = coursecat::make_categories_list();
+        $categorylist = core_course_category::make_categories_list();
 
         // Form elements.
         $mform->addElement('header', '', get_string('coursefilteringsettings', 'local_campusconnect'));
