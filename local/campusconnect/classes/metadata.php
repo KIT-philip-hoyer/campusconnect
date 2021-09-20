@@ -111,6 +111,8 @@ class metadata {
         'shortname' => '{lectureID}',
         'idnumber' => '',
         'summary' => null, // This is built on first load using get_string.
+        'startdate' => '',
+        'lang' => '',
         'timecreated' => '',
         'timemodified' => ''
     );
