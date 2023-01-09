@@ -810,7 +810,7 @@ class connect {
             if (empty($url)) {
                 continue; // Ignore empty / whitespace only lines.
             }
-            if ($url{0} == '#') {
+            if ($url[0] == '#') {
                 continue; // Ignore comment lines.
             }
 
