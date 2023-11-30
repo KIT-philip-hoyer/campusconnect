@@ -37,6 +37,7 @@ class campusconnect_ecs_form extends moodleform {
         $roles = role_fix_names(get_all_roles(), context_system::instance(), ROLENAME_ORIGINAL);
         $allowedroleids = get_roles_for_contextlevels(CONTEXT_COURSE);
         $optroles = array();
+        $optroles[-1] = get_string('nosystemrole', 'local_campusconnect');
         foreach ($roles as $role) {
             if (in_array($role->id, $allowedroleids)) {
                 $optroles[$role->shortname] = $role->localname;
@@ -123,7 +124,7 @@ class campusconnect_ecs_form extends moodleform {
         $mform->addElement('header', 'useraccountsettings', get_string('useraccountsettings', 'local_campusconnect'));
 
         $mform->addElement('select', 'importrole', get_string('roleassignments', 'local_campusconnect'), $optroles);
-        $mform->setDefault('importrole', 'student');
+        $mform->setDefault('importrole', -1);
         $mform->addElement('select', 'importperiod', get_string('activationperiod', 'local_campusconnect'), range(0, 36));
         $mform->addElement('static', 'activationmonths', '', get_string('months', 'local_campusconnect'));
         $mform->setDefault('importperiod', '10');

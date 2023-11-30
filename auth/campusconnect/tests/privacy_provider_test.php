@@ -35,7 +35,7 @@ class auth_campusconnect_privacy_provider_testcase extends \core_privacy\tests\p
     /**
      * {@inheritdoc}
      */
-    protected function setUp() {
+    protected function setUp(): void {
         global $DB;
         $this->resetAfterTest();
 

@@ -274,3 +274,4 @@ $string['usesinglecategory_help'] = 'All courses will be created in the specifie
 $string['viewlog'] = 'View logs';
 $string['warningexports'] = 'Warning - the following course(s) are currently exported to \'{$a}\' - they will no longer be exported if you continue.';
 $string['warningimports'] = 'Warning - the following course(s) are currently imported from \'{$a}\' - they will be removed if you continue.';
+$string['nosystemrole'] = 'No system role';

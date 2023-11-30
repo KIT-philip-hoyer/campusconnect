@@ -50,7 +50,7 @@ class ecssettings {
     protected $crontime = 60;
     protected $lastcron = 0;
     protected $importcategory = null;
-    protected $importrole = 'student';
+    protected $importrole = '-1';
     protected $importperiod = 6;
 
     // Notification details.
@@ -319,7 +319,7 @@ class ecssettings {
         }
 
         if (isset($settings->importrole)) {
-            if ($settings->importrole != $this->importrole) {
+            if ($settings->importrole != $this->importrole && $settings->importrole!=-1) {
                 if (!$DB->record_exists('role', array('shortname' => $settings->importrole))) {
                     throw new coding_exception("campusconnect_ecssettings - non-existent role shortname: $settings->importrole");
                 }

@@ -105,12 +105,13 @@ class auth_plugin_campusconnect extends auth_plugin_base {
             $ccuser = get_complete_user_data('id', $id);
         }
 
-        // do not set a role in system context
-        //$systemcontext = context_system::instance();
-        //$ecssettings = new ecssettings($userdetails->ecsid);
-        //$defaultrole = $ecssettings->get_import_role();
-        //$defaultroleid = $DB->get_field('role', 'id', array('shortname' => $defaultrole));
-        //role_assign($defaultroleid, $ccuser->id, $systemcontext->id);
+        $systemcontext = context_system::instance();
+        $ecssettings = new ecssettings($userdetails->ecsid);
+        $defaultrole = $ecssettings->get_import_role();
+        if ($defaultrole != "-1") {
+            $defaultroleid = $DB->get_field('role', 'id', array('shortname' => $defaultrole));
+            role_assign($defaultroleid, $ccuser->id, $systemcontext->id);
+        }
 
         if (isset($userdetails->ecsid)) {
             unset ($userdetails->ecsid);
